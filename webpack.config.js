@@ -6,7 +6,15 @@ module.exports = {
   },
   module: {
       loaders: [
-          { test: /\.css$/, loader: "style!css" }
+          { test: /\.css$/, loader: "style!css" },
+          {
+            test: /\.(js|jsx)$/,
+            loader: 'babel',
+            query: {
+              presets: ['es2015', 'stage-0', 'react'],
+              plugins: ['transform-runtime']
+            }
+          }
       ]
   }
 };
